@@ -65,15 +65,9 @@ function Cover({ onOpen, opening }: { onOpen: () => void; opening: boolean }) {
 
 function Corner({ className = "" }: { className?: string }) {
   return (
-    <img
-      src={roses}
-      alt=""
-      aria-hidden
-      loading="lazy"
-      width={1024}
-      height={1024}
-      className={`pointer-events-none absolute w-40 md:w-72 animate-sway drop-shadow-xl ${className}`}
-    />
+    <div aria-hidden className={`pointer-events-none absolute w-40 md:w-72 ${className}`}>
+      <img src={roses} alt="" loading="lazy" width={1024} height={1024} className="w-full animate-sway drop-shadow-xl" />
+    </div>
   );
 }
 
@@ -186,8 +180,12 @@ function Index() {
         <div className="absolute inset-0 bg-veil" />
         <Birds />
         <Sparkles count={20} />
-        <img src={roses} alt="" aria-hidden className="absolute -bottom-10 -left-10 w-56 md:w-[26rem] -scale-y-100 animate-sway" style={{ transform: `translateY(${-y * 0.2}px) scaleY(-1)` }} />
-        <img src={roses} alt="" aria-hidden className="absolute -bottom-10 -right-10 w-56 md:w-[26rem] animate-sway" style={{ transform: `translateY(${-y * 0.2}px) scale(-1,-1)` }} />
+        <div aria-hidden className="absolute -bottom-10 -left-10 w-56 md:w-[26rem]" style={{ transform: `translateY(${-y * 0.2}px) scaleY(-1)` }}>
+          <img src={roses} alt="" className="w-full animate-sway" />
+        </div>
+        <div aria-hidden className="absolute -bottom-10 -right-10 w-56 md:w-[26rem]" style={{ transform: `translateY(${-y * 0.2}px) scale(-1,-1)` }}>
+          <img src={roses} alt="" className="w-full animate-sway" />
+        </div>
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-ivory" style={{ transform: `translateY(${y * 0.15}px)` }}>
           <p className="text-xs uppercase tracking-[0.5em] text-gold">Selamat datang di taman kerajaan</p>
           <h1 className="font-script text-7xl md:text-9xl text-gold-gradient drop-shadow-2xl">Arya & Kirana</h1>
